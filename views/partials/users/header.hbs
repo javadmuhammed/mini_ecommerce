@@ -1,0 +1,76 @@
+<header>
+    <div class="topHeader">
+        <div class="container">
+            <div class="headerSite">
+                <div class="logo">
+                    <img src="assets/images/Logo/logo.png" type="button" onclick="window.location.href='/'" alt="">
+                </div>
+                <div class="search">
+                    <form action="/products" method="GET">
+                        <div class="searchTop">
+                            <input type="text" name="searchProduct" placeholder="Search Product">
+                            <input type="hidden" name="productType" value="{{currentUrl}}">
+                            <button>
+                                <div class="fa-solid fa-search"></div>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="menu">
+                    <ul class="menu_list">
+
+                        {{#if data.username}}
+                        <li>
+                            <a href="/account" class="">
+                                <i class="fa-solid fa-user"></i>
+                                {{data.username}}
+                            </a>
+                        </li>
+                        {{else}}
+                        <li>
+                            <a href="/sign-in" class="">
+                                <i class="fa-solid fa-user"></i>
+                                Sign In
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/sign-up">
+                                <i class="fa-solid fa-user"></i>
+                                Sign Up
+                            </a>
+                        </li>
+                        {{/if}}
+
+
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav>
+        <div class="container">
+            <ul class="navlink">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/products">Product</a>
+                </li>
+
+
+                {{#if data.username}}
+                <li>
+                    <a href="/account">Account</a>
+                </li>
+                {{else}}
+                <li>
+                    <a href="/sign-in">Sign</a>
+                </li>
+                {{/if}}
+
+
+            </ul>
+        </div>
+    </nav>
+</header>

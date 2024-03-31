@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mini Ecommerce Site</title>
+    <script src="https://kit.fontawesome.com/6f707f910a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+
+
+    {{> users/header}}
+
+    <div class="bg-primary">
+        <div class="container py-4">
+            <!-- Breadcrumb -->
+            <nav class="d-flex">
+                <h6 class="mb-0">
+                    <a href="" class="text-white-50">Home</a>
+                    <span class="text-white-50 mx-2"> &gt; </span>
+                    <a href="" class="text-white"><u>Shopping cart</u></a>
+                </h6>
+            </nav>
+            <!-- Breadcrumb -->
+        </div>
+    </div>
+
+    <section class="bg-light pt-5 pb-5">
+        <div class="container">
+            <div class="row">
+
+                <main class="col-md-4">
+
+                    <header class=" mb-2 pb-3">
+                        <div class="form-inline">
+                            <span class="mr-md-auto">{{productLength}} Items found </span>
+                            <form action="/products" method="get" id="fillterForm">
+                                <select name="productType" id="filtterProduct" class="mr-2 form-control">
+                                    <option value="latest">Latest items</option>
+                                    <option value="low">Lowest to Highest</option>
+                                    <option value="high">Highest to Lowest</option>
+                                </select>
+                                <input type="hidden" name="searchProduct" value="{{currentUrl}}">
+                            </form>
+
+                        </div>
+                    </header>
+                </main>
+
+                <div class="row">
+
+                    {{#each product}}
+                    <div class="col-md-3">
+                        <div class="card w-100 my-2 shadow-2-strong">
+                            <img src="../productImage/{{product_image}}" class="card-img-top"
+                                style="aspect-ratio: 1 / 1">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">{{product_name}}</h5>
+                                <p class="card-text">
+                                    <b>₹{{price}}</b> <span class="text-overlay">₹{{discount}}</span>
+                                </p>
+                                <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
+                                    <a href="#!" class="btn btn-primary w-100 shadow-0 me-1">Contact us</a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- col.// -->
+                    {{/each}}
+
+                </div> <!-- row end.// -->
+
+
+
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <section class="mt-5" style="background-color: #f5f5f5;">
+        <div class="container text-dark pt-3">
+            <header class="pt-4 pb-3">
+                <h3>Why choose us</h3>
+            </header>
+
+            <div class="row mb-4">
+                <div class="col-lg-4 col-md-6">
+                    <figure class="d-flex align-items-center mb-4">
+                        <span class="rounded-circle bg-white p-3 d-flex me-2 mb-2">
+                            <i class="fas fa-camera-retro fa-2x fa-fw text-primary floating"></i>
+                        </span>
+                        <figcaption class="info">
+                            <h6 class="title">Reasonable prices</h6>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmor</p>
+                        </figcaption>
+                    </figure>
+
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <figure class="d-flex align-items-center mb-4">
+                        <span class="rounded-circle bg-white p-3 d-flex me-2 mb-2">
+                            <i class="fas fa-star fa-2x fa-fw text-primary floating"></i>
+                        </span>
+                        <figcaption class="info">
+                            <h6 class="title">Best quality</h6>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmor</p>
+                        </figcaption>
+                    </figure>
+                    <!-- itemside // -->
+                </div>
+                <!-- col // -->
+                <div class="col-lg-4 col-md-6">
+                    <figure class="d-flex align-items-center mb-4">
+                        <span class="rounded-circle bg-white p-3 d-flex me-2 mb-2">
+                            <i class="fas fa-plane fa-2x fa-fw text-primary floating"></i>
+                        </span>
+                        <figcaption class="info">
+                            <h6 class="title">Worldwide shipping</h6>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmor</p>
+                        </figcaption>
+                    </figure>
+                    <!-- itemside // -->
+                </div>
+                <!-- col // -->
+                <div class="col-lg-4 col-md-6">
+                    <figure class="d-flex align-items-center mb-4">
+                        <span class="rounded-circle bg-white p-3 d-flex me-2 mb-2">
+                            <i class="fas fa-users fa-2x fa-fw text-primary floating"></i>
+                        </span>
+                        <figcaption class="info">
+                            <h6 class="title">Customer satisfaction</h6>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmor</p>
+                        </figcaption>
+                    </figure>
+                    <!-- itemside // -->
+                </div>
+                <!-- col // -->
+                <div class="col-lg-4 col-md-6">
+                    <figure class="d-flex align-items-center mb-4">
+                        <span class="rounded-circle bg-white p-3 d-flex me-2 mb-2">
+                            <i class="fas fa-thumbs-up fa-2x fa-fw text-primary floating"></i>
+                        </span>
+                        <figcaption class="info">
+                            <h6 class="title">Happy customers</h6>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmor</p>
+                        </figcaption>
+                    </figure>
+                    <!-- itemside // -->
+                </div>
+                <!-- col // -->
+                <div class="col-lg-4 col-md-6">
+                    <figure class="d-flex align-items-center mb-4">
+                        <span class="rounded-circle bg-white p-3 d-flex me-2 mb-2">
+                            <i class="fas fa-box fa-2x fa-fw text-primary floating"></i>
+                        </span>
+                        <figcaption class="info">
+                            <h6 class="title">Thousand items</h6>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmor</p>
+                        </figcaption>
+                    </figure>
+                    <!-- itemside // -->
+                </div>
+                <!-- col // -->
+            </div>
+        </div>
+        <!-- container end.// -->
+    </section>
+
+
+    {{> users/footer}}
+
+
+    <script>
+
+
+
+        let selectInput = document.querySelector("#filtterProduct");
+        let form = document.querySelector("#fillterForm");
+
+
+        selectInput.addEventListener("change", function () { 
+            form.submit()
+        })
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

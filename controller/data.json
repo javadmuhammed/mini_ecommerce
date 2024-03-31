@@ -1,0 +1,26 @@
+{
+  "_id": "product_id",  
+  "name": "Product Name",  
+  "small_description": "Brief description of the product",  
+  "sale_price": 100.00,  
+  "original_price": 120.00,  
+  "images": [
+    "image_url_1.jpg",
+    "image_url_2.jpg"
+  ],   
+  "category": "Electronics",  
+  "extra_description": "Additional product details",  
+  "description": "Full product description",  
+  "key_features": [
+    "Feature 1",
+    "Feature 2",
+    "Feature 3"
+  ],  
+  "specifications": [
+    "specifications 1",
+    "specifications 1",
+    "specifications 1"
+  ],
+  "stock": 100,  
+  "emi_availability": true 
+}

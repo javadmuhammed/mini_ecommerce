@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mini-ecommerce
+  labels:
+    app: mini-ecommerce
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mini-ecommerce
+  template:
+    metadata:
+      labels:
+        app: mini-ecommerce
+    spec:
+      containers:
+      - name: mini-ecommerce
+        image: mini-ecommerce
+        ports:
+        - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mini-ecommerce-service
+spec:
+  type: NodePort
+  selector:
+    app: nodeapp
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+      nodePort : 30100

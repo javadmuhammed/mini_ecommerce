@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login Page in Node js</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+
+<body>
+
+
+
+    <section id="sp_background" style="background-image: url('image/bg_image.jpg');">
+        <div class="containe_login">
+            <div class="container_login">
+                <div class="content_login_form">
+                    <div class="form_header">
+                        <div class="headLogin">
+                            <h4>Login <span>Panel</span></h4>
+                            <p>Sign in to start your session</p>
+                        </div>
+                        {{#if data}}
+                        {{#if data.error}}
+                        <div class="alertMessage">
+                            {{{data.msg}}}
+                        </div>
+                        {{/if}}
+                        {{/if}}
+
+                    </div>
+                    <div class="loginForm">
+                        <form action="/sign-in" onsubmit="return validateLogin()" method="post">
+                            <div class="input_group">
+                                <input type="text" placeholder="Username" name="username" id="username">
+                            </div>
+                            <div class="input_group">
+                                <input type="password" placeholder="Password" name="password" id="password">
+                            </div>
+                            <div class="buttonLogin">
+                                <button type="submit">Sign in</button>
+                                <div class="mt-2">
+                                    <a href="/sign-up" type="button" class="w-100 btn btn-success">Don't have an
+                                        account! create
+                                        one</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+
+
+    <script>
+
+
+
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get("logout")) {
+            alert("Logout")
+        }
+
+
+        function validateLogin() {
+            let username = document.getElementById("username")
+            let password = document.getElementById("password")
+
+            if (username.value == "" || password.value == "") {
+                errorAlert.style.display = "block"
+                errorAlert.innerHTML = "Please fill the form properly"
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+
+</html>

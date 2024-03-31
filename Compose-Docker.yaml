@@ -1,0 +1,19 @@
+version: '1.0'
+services:
+  mini-ecom:
+    image: mini-com
+    ports:
+      - '7000:7000'
+    networks:
+      - com-network
+
+  mini-ecom-mongo:
+    image: mongo
+    ports:
+      - '27017:27017'
+    networks:
+      - com-network
+
+networks:
+  com-network:
+    driver: bridge
