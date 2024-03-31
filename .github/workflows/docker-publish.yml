@@ -17,7 +17,7 @@ on:
 
 env:
   # Use docker.io for Docker Hub if empty
-  REGISTRY: docker.io
+  REGISTRY: hub.docker.com/repository/docker
   USER_NAME: javadjazz123
   PASSWORD_TOEKN: dckr_pat_5NuwQe-acnhN350DEO8mgCU0mxA
   # github.repository as <account>/<repo>
