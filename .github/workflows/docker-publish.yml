@@ -17,7 +17,7 @@ on:
 
 env:
   # Use docker.io for Docker Hub if empty
-  REGISTRY: hub.docker.com/repository/docker
+  REGISTRY: docker.io
   USER_NAME: javadjazz123
   PASSWORD_TOEKN: dckr_pat_5NuwQe-acnhN350DEO8mgCU0mxA
   # github.repository as <account>/<repo>
@@ -78,7 +78,7 @@ jobs:
         uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09 # v5.0.0
         with:
           context: .
-          push: true
+          push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
