@@ -44,10 +44,10 @@ app.use((req, res, next) => {
     res.locals.data = data;
     next();
 });
-
-
 app.use("/admin", adminRouet)
 app.use("/", userRouter)
+
+
 
 
 app.listen(7000, function () {
