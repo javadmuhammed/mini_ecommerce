@@ -46,9 +46,9 @@ app.use((req, res, next) => {
 });
 
 
-
-app.use("/", userRouter)
 app.use("/admin", adminRouet)
+app.use("/", userRouter)
+
 
 app.listen(7000, function () {
     console.log("Server started at https://localhost:7000");
